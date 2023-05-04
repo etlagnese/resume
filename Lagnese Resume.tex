@@ -1,0 +1,197 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Copyright (c) 2021, 2022     %
+%          Daylam Tayari           %
+%                                  %
+%  Credit to Pascal-0x90 for the   %
+%     original LaTeX template.     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage[dvipsnames]{xcolor}
+\usepackage{hyperref}
+\usepackage{fontawesome5}
+\usepackage{xifthen}
+\hypersetup{breaklinks=true,%
+	pagecolor=white,%
+	colorlinks=true,%
+	linkcolor=cyan,%
+	urlcolor=MyDarkBlue}
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+\definecolor{contactgray}{gray}{0.2}
+\pagestyle{empty}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Large#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\normalsize#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+	\begin{list}{}{
+			\setlength{\itemsep}{0pt}
+			\setlength{\labelsep}{0pt}
+			\setlength{\labelwidth}{0pt}
+			\setlength{\leftmargin}{0pt}
+			\setlength{\rightmargin}{\tabin}
+			\setlength{\listparindent}{0pt}
+			\setlength{\parsep}{0pt}
+			\setlength{\parskip}{0pt}
+			\setlength{\partopsep}{0pt}
+			\setlength{\topsep}{#1}
+		}
+		\item[]
+	}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+	\begin{tabbing}
+	}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+\newenvironment{resume_section}[1]{
+	\filbreak
+	\vspace{2\secsep}
+	\textsc{\color{blue}\large#1}
+	\lineunder
+	\begin{tabbedsection}{\secsep}
+	}{\end{tabbedsection}}
+
+% Variable 1: Date; Variable 2: Subsection name.
+\newenvironment{resume_subsection}[2]{
+	\textbf{\color{BlueViolet}#2} \hfill {\normalsize (#1)} \hspace{-5em}
+	\begin{tabbedsection}{0.5\secsep}
+		\begin{subitems}
+		}{\end{subitems}\end{tabbedsection}}
+
+\newenvironment{subitems}{
+	\renewcommand{\labelitemi}{-}
+	\begin{itemize}
+		\setlength{\labelsep}{1em}
+	}{\end{itemize}}
+
+% If you only had a single role, put your role as the second value otherwise use the resume_position environment inside of this environment.
+% Variable 1: Company name; Variable 2: Role/title; Variable 3: Years worked.
+\newenvironment{resume_employer}[3]{
+	\begin{tabular*}
+		{1.0\textwidth}{@{\extracolsep{\fill}} l l r}
+		\textbf{#1} & \textbf{#2} & \textbf{#3}
+	\end{tabular*}
+}
+
+% Variable 1: Role/title; Variable 2: Years holding that role.
+\newenvironment{resume_position}[2]{
+	\vspace{\secsep}
+	\textbf{#1} \hfill {\normalsize (#2)} \hspace{-2.64em}
+	\begin{subitems}
+	}{\end{subitems}}
+
+%%%%%%%%%%%%%%%%%%%%
+%     Document     %
+%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+	
+	\begin{resume_header}
+		\name{Eric Lagnese}
+		\contact {
+			\faEnvelope[solid] \, \href{mailto:etlagnese@gmail.com}{etlagnese@gmail.com}
+			\faPhone \, \href{tel:724-759-0944}724-759-0944
+		}
+		\contact {
+			 \faLinkedin \, \href{https://www.linkedin.com/in/eric-lagnese/}{eric-lagnese}
+			 \faHome \, 707 N Hickory Ave. Apt. 3, 21014
+		}
+	\end{resume_header}
+	
+	%\begin{resume_section}{Objective}
+	%Highly driven student with experience working with a large variety of technologies and enterprise solutions seeking a security internship.
+	%\end{resume_section}
+
+	\begin{resume_section}{Work Experience}
+		\begin{resume_employer}{Software Engineer}{June (2019) - Present}{AASKI Technology aq. by MAG Aerospace}
+			Operated in a small team that produced software applications for soldier use in the field. Main area of focus was on frontend
+			development. Additionally consolidated and fulfilled requirements provided by the customer. Debugged networks, services, and
+			android applications.
+		\end{resume_employer}
+		\begin{resume_employer}{Intern}{Summer (2018)}{AASKI Technology}
+Completed Full-Stack development of User Interface using Golang, HTML, and Vue.js. Implemented solutions for a dynamic User
+Interface and dynamic data-binding. Assisted implementation of server and databases on embedded devices.
+		\end{resume_employer}
+		\begin{resume_employer}{Research Volunteer}{October (2016) - May (2017)}{WVU School of Medicine}
+		Contributed in Neural Engineering Laboratory to DARPA HAPTIX subcontract (PI: Yakovenko). Responsible for signal processing of
+		kinematics, surface and intramuscular electromyography from healthy and amputee human subjects.
+		\end{resume_employer}
+	\end{resume_section}
+	
+	\vspace{2\secsep}	
+	
+	\begin{resume_section}{Education}
+		\begin{resume_subsection}{August 2015 - May 2019}{West Virginia University}
+			B.S. in Mechanical Engineering \hspace{8.75cm}	\makebox[2cm]{GPA: 3.73}\par
+			Minor in Computer Science  \hspace{9cm} \makebox[5cm]{Completed Hours: 152}\\*
+		\end{resume_subsection}
+	\end{resume_section}
+	
+	\vspace{-3\secsep}
+	
+	\begin{resume_section}{Projects}
+		\begin{resume_subsection}{August 2019 - Present}{Precision Fires-Dismounted}
+			Precision Fires-Dismounted (PF-D) is a plugin to a geospatial awareness android app. PF-D was designed to facilitate users in digital
+			communications as well as situational awareness. Implemented user experience (UX) improvements, backend support for network
+			management, performance improvements for user interface (UI) responsiveness, and worked to remove technical debt. Consolidated
+			project requirements to support project management. Implemented basic geographical calculations. Initiated the development of a code generation tool to implement a standard message specification. Assisted with the fielding of this product as well as relaying and finding technical solutions to the customer. Interfaced with the developers assigning and distributing the workload after receiving test reports.
+		\end{resume_subsection}
+		\vspace{2\secsep}
+		\begin{resume_subsection}{August 2022 - Present}{Mounted Mission Command}
+			Worked as a developer on a team of 14 engineers to develop a product release for soldiers. My role for this project has been to create and update mission critical applications on short timelines. Organized discussions from the customer to form an actionable report to the developers. Formed most of the team’s documentation for testing, building, and development environments to support our team of developers that has doubled in size. Completed critical UX feature for customer saving a lot of money and potential late delivery.
+		\end{resume_subsection}
+		\vspace{2\secsep}
+		\begin{resume_subsection}{June 2019 - September 2019}{Radio Timing Tool}
+			Worked to create a command line interface and assisted in debugging the capturing of timing parameters. This application is
+			currently in use to establish the modem timing configurations used to create field networks for tactical digital communications.
+		\end{resume_subsection}
+		\vspace{2\secsep}
+		\begin{resume_subsection}{August 2017 - May 2019}{University Robotics Competition Team}
+			As a member of multiple sub teams, using C++ programmed kinematics for Rover’s waypoint navigation, calculated distance of
+			objects to Rover given Computer Vision data; lead the communications and user interface team.
+		\end{resume_subsection}
+		\vspace{2\secsep}
+		\iffalse
+		\begin{resume_subsection}{Fall 2018}{Mobile Robotics Project}
+			Programmed in C++ to implemented GPS navigation, path planning, and tennis ball (object) detection for autonomous traversal task.
+			Using the random error from GPS measurements, created a random searching method. Interfacing programs and data with Robotic
+			Operating System. Created simple reactive obstacle avoidance and a waypoint navigation inspired by bug algorithm.
+		\end{resume_subsection}
+		\fi
+	\end{resume_section}
+	
+	\begin{resume_section}{Skills}
+	\begin{nospacetabbing}
+		\textbf{Languages:} \hspace{5em} \=Java, C, Python, SQL.\\*
+		\textbf{Technologies:} \> PostgreSQL, QEMU, Docker, Gitlab, Linux, Yocto, IP Networking.\\*
+		\textbf{Tools:} \> JetBrains IDE's, neovim, gdb
+	\end{nospacetabbing}
+	\end{resume_section}
+	
+\end{document}
