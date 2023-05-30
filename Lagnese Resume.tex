@@ -84,6 +84,14 @@
 		\begin{subitems}
 		}{\end{subitems}\end{tabbedsection}}
 
+% Variable 1: Date; Variable 2: Subsection name.
+\newenvironment{resume_project_subsection}[3]{
+	\textbf{\color{BlueViolet}#2} \hfill \hspace{-5em} {\normalsize (#1)}
+	\\ {\small \textit{ #3}}
+	\begin{tabbedsection}{0.5\secsep}
+		\begin{subitems}
+		}{\end{subitems}\end{tabbedsection}}
+
 \newenvironment{subitems}{
 	\renewcommand{\labelitemi}{-}
 	\begin{itemize}
@@ -98,6 +106,13 @@
 		\textbf{#1} & \textbf{#2} & \textbf{#3}
 	\end{tabular*}
 }
+
+% To establish a section with in the projects that the following bullet points will point to a pariticular skill.
+% Variable 1: Skill title.
+\newenvironment{resume_skill_group}[1]{
+	\hspace{-18pt}\textbf{#1}
+	\begin{itemize}
+	}{\end{itemize}}
 
 % Variable 1: Role/title; Variable 2: Years holding that role.
 \newenvironment{resume_position}[2]{
@@ -156,28 +171,75 @@ Interface and dynamic data-binding. Assisted implementation of server and databa
 	\vspace{-3\secsep}
 	
 	\begin{resume_section}{Projects}
-		\begin{resume_subsection}{August 2019 - Present}{Precision Fires-Dismounted}
-			Precision Fires-Dismounted (PF-D) is a plugin to a geospatial awareness android app. PF-D was designed to facilitate users in digital
-			communications as well as situational awareness. Implemented user experience (UX) improvements, backend support for network
-			management, performance improvements for user interface (UI) responsiveness, and worked to remove technical debt. Consolidated
-			project requirements to support project management. Implemented basic geographical calculations. Initiated the development of a code generation tool to implement a standard message specification. Assisted with the fielding of this product as well as relaying and finding technical solutions to the customer. Interfaced with the developers assigning and distributing the workload after receiving test reports.
-		\end{resume_subsection}
+		\begin{resume_project_subsection}{August 2019 - Present}{Precision Fires-Dismounted}{Precision Fires-Dismounted (PF-D) is an Android App that runs as a plugin to a geospatial awareness \textbf{Android App}.}			
+			\begin{resume_skill_group}{Project Management}
+				\item 
+				\item 
+					Consolidated project requirements to support project management. 
+				\item 
+					Interfaced with the developers assigning and distributing the workload after receiving test reports.
+				\item 
+					Assisted with the fielding of this product as well as relaying and finding technical solutions to the customer. 
+				\end{resume_skill_group}
+				
+				\begin{resume_skill_group}{Development}
+						\item 
+				
+					\item
+					Developed both \textbf{Java and C} for Android working with networking and user interface (UI).
+					\item
+					Implemented user experience (UX) improvements, backend support for network
+					management, performance improvements for UI responsiveness, and worked to remove technical debt. 
+					\iffalse
+					\item 
+					Implemented basic geographical calculations. 
+					\fi
+					\item 
+					Initiated the development of a code generation tool to implement a standard message specification. 
+				\end{resume_skill_group}
+		\end{resume_project_subsection}
 		\vspace{2\secsep}
-		\begin{resume_subsection}{August 2022 - Present}{Mounted Mission Command}
-			Worked as a developer on a team of 14 engineers to develop a product release for soldiers. My role for this project has been to create and update mission critical applications on short timelines. Organized discussions from the customer to form an actionable report to the developers. Formed most of the team’s documentation for testing, building, and development environments to support our team of developers that has doubled in size. Completed critical UX feature for customer saving a lot of money and potential late delivery.
-		\end{resume_subsection}
+		\begin{resume_project_subsection}{August 2022 - Present}{Mounted Mission Command}{An \textbf{Android Open Source} and \textbf{Yocto Linux} project developed for Mounted Computing Unit on military vehicles.}
+			\begin{resume_skill_group}{Project Management}
+					\item 
+				
+					\item 
+					Worked as a developer on a team of \textbf{14 engineers} to develop a product release for soldiers. 
+					\item 
+						Organized discussions from the customer to form an actionable report to the developers.
+	\iffalse
+					\item 
+						Formed most of the team’s documentation for testing, building, and development environments to support our team of developers that has doubled in size. 
+					
+\fi
+			\end{resume_skill_group}
+
+			\begin{resume_skill_group}{Development}
+					\item 
+					\item  
+						Developed user applications in \textbf{C and Java} with their \textbf{BitBake} recipes for networking and user interface. 
+					\item 
+						Completed critical UX feature for customer saving money and potential late delivery.
+			\end{resume_skill_group}
+		\end{resume_project_subsection}
 		\vspace{2\secsep}
-		\begin{resume_subsection}{June 2019 - September 2019}{Radio Timing Tool}
-			Worked to create a command line interface and assisted in debugging the capturing of timing parameters. This application is
-			currently in use to establish the modem timing configurations used to create field networks for tactical digital communications.
-		\end{resume_subsection}
+		\begin{resume_project_subsection}{June 2019 - September 2019}{Radio Timing Tool}{This application is currently in use to establish the modem timing configurations used to create field networks for tactical digital communications.}
+				\item 
+					Worked to create a command line interface and assisted in debugging the capturing of timing parameters for \textbf{Python} application.
+		\end{resume_project_subsection}
 		\vspace{2\secsep}
-		\begin{resume_subsection}{August 2017 - May 2019}{University Robotics Competition Team}
-			As a member of multiple sub teams, using C++ programmed kinematics for Rover’s waypoint navigation, calculated distance of
-			objects to Rover given Computer Vision data; lead the communications and user interface team.
-		\end{resume_subsection}
-		\vspace{2\secsep}
+		
 		\iffalse
+		\begin{resume_subsection}{August 2017 - May 2019}{University Robotics Competition Team}
+			\begin{itemize}
+				\item 
+					As a member of multiple sub teams, using C++ programmed kinematics for Rover’s waypoint navigation, calculated distance of
+					objects to Rover given Computer Vision data.
+				\item 
+					Lead the communications and user interface team.
+			\end{itemize}
+		\end{resume_subsection}
+		\vspace{2\secsep}
 		\begin{resume_subsection}{Fall 2018}{Mobile Robotics Project}
 			Programmed in C++ to implemented GPS navigation, path planning, and tennis ball (object) detection for autonomous traversal task.
 			Using the random error from GPS measurements, created a random searching method. Interfacing programs and data with Robotic
@@ -189,7 +251,7 @@ Interface and dynamic data-binding. Assisted implementation of server and databa
 	\begin{resume_section}{Skills}
 	\begin{nospacetabbing}
 		\textbf{Languages:} \hspace{5em} \=Java, C, Python, SQL.\\*
-		\textbf{Technologies:} \> PostgreSQL, QEMU, Docker, Gitlab, Linux, Yocto, IP Networking.\\*
+		\textbf{Technologies:} \> PostgreSQL, lxc, QEMU, Docker, Gitlab, Linux, Yocto, IP Networking.\\*
 		\textbf{Tools:} \> JetBrains IDE's, neovim, gdb
 	\end{nospacetabbing}
 	\end{resume_section}
